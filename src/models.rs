@@ -37,8 +37,8 @@ pub struct ShareLink{
 }
 
 #[derive(sqlx::FromRow, Debug, Clone, Deserialize, Serialize)]
-pub struct SendFileDetails{
-    pub id: uuid::Uuid,
+pub struct SentFileDetails{
+    pub file_id: uuid::Uuid,
     pub file_name: String,
     pub recipient_email: String,
     pub expiration_date: Option<DateTime<Utc>>,
@@ -55,7 +55,7 @@ pub struct ReadFileDetails{
 }
 #[derive(sqlx::FromRow, Debug, Clone, Deserialize, Serialize)]
 pub struct ReceiveFileDetails{
-    pub id: uuid::Uuid,
+    pub file_id: uuid::Uuid,
     pub file_name: String,
     pub sender_email: String,
     pub expiration_date: Option<DateTime<Utc>>,
