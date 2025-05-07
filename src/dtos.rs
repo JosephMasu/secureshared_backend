@@ -227,7 +227,9 @@ pub struct FileUploadDtos {
 
 fn validate_expiration_date(expiration_date: &String) -> Result<(), ValidationError> {
     if expiration_date.is_empty() {
-        return Err(ValidationError::new("expiration_date_required"));
+        let mut error = ValidationError::new("expiration_date_required");
+        error.message = Some("Expiration date is required.".into());
+        return Err(error);
     }
 
     let parsed_date = DateTime::parse_from_rfc3339(expiration_date)
