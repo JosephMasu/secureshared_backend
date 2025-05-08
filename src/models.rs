@@ -21,13 +21,11 @@ pub struct File{
     pub encrypted_aes_key: Vec<u8>,
     pub encrypted_file:Vec<u8>, 
     pub iv: Vec<u8>,
-    pub file_type: String,
-    pub path: String,
     pub created_at:Option<DateTime<Utc>>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize, sqlx::FromRow, sqlx::Type)]
-pub struct ShareLink{
+pub struct SharedLink{
     pub id: uuid::Uuid,
     pub file_id: Option<uuid::Uuid>,
     pub recipient_user_id: Option<uuid::Uuid>,
