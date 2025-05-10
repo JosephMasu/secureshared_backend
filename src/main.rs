@@ -3,7 +3,7 @@ mod models;
 mod dtos;
 mod error;
 mod db;
-// mod utils;
+mod utils;
 // mod middleware;
 // mod handler;
 // mod router;
